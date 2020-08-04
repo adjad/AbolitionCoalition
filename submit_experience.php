@@ -70,22 +70,8 @@ if ( $_POST['terrain7'] == "true") {
 else {
   $ter7 = ' '; }
 
-// if ( $_POST['terrain3'] == "true") {
-//   $ter3 = 'Mountains';}
-// else {
-//   $ter3 = 'No Mountains'; }
-// if ( $_POST['terrain3'] == "true") {
-//   $ter = $ter + "," + "Mountains";}
-// if ( $_POST['terrain4'] == "true") {
-//   $ter = $ter + "," + "Hills"; }
-// if ( $_POST['terrain5'] == "true") {
-//   $ter = $ter + "," + "Plateaus"; }
-// if ( $_POST['terrain6'] == "true") {
-//    $ter = $ter + "," + "Forests"; }
-// if ( $_POST['terrain7'] == "true") {
-//    $ter = $ter + "," + "Swamps"; }
 
-echo "Terrain is " + $ter1;
+// echo "Terrain is " + $ter1;
 
 
     $new_user = array(
@@ -95,6 +81,9 @@ echo "Terrain is " + $ter1;
       "sponsor_name"       => $_POST['conductor'],
       "essential_items"  => $_POST['supplies'],
       "comments" => $_POST['extra_comments'],
+      "number_people" => $_POST['num_people'],
+      "start_date" => $_POST['start_date'],
+      "end_date" => $_POST['end_date'],
       "type_of_terrain" => $ter1 . $ter2 . $ter3 . $ter4 . $ter5 . $ter6 . $ter7
       // "question1" => $q1,
       // "question2" => $q2,
@@ -142,7 +131,7 @@ implode(", ", array_keys($new_user)),
 </head>
 
 <body class="contact-page sidebar-collapse">
-  <nav class="navbar    fixed-top  navbar-expand-lg bg-dark" color-on-scroll="100" id="sectionsNav">
+  <!-- <nav class="navbar    fixed-top  navbar-expand-lg bg-dark" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit-pro/index.html">
@@ -254,7 +243,65 @@ implode(", ", array_keys($new_user)),
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
+  <nav class="navbar    fixed-top  navbar-expand-lg bg-dark" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit-pro/index.html">
+          <b>AbolitionCoalition</b> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">apps</i>Sponsors
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="ACpendingsponsorships.html" class="dropdown-item">
+                <i class="material-icons">line_style</i> Sponsor An Escape
+              </a>
+              <a href="ACsponsorhist.html" class="dropdown-item">
+                <i class="material-icons">content_paste</i> Sponsorship History
+              </a>
+            </div>
+          </li>
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">view_day</i> Escapees
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="PrepYourEscape.html" class="dropdown-item">
+                <i class="material-icons">dns</i> Prepare Your Escape
+              </a>
+              <a href="UpdateYourPlan.html" class="dropdown-item">
+                <i class="material-icons">build</i> Update Your Plan
+              </a>
+              <a href="ACReviewExp.html" class="dropdown-item">
+                <i class="material-icons">list</i> Escape Experience
+              </a>
+            </div>
+          </li>
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">view_carousel</i> Liberated
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="ACReviewExp.html" class="dropdown-item">
+                <i class="material-icons">account_balance</i> Review Your Experience
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>  
+
 <form method="post">
   <div id="contactUsMap" class="big-map"></div>
   <div class="main main-raised">
@@ -279,12 +326,20 @@ implode(", ", array_keys($new_user)),
                 <input type="text" class="form-control" id="ending" name="ending">
               </div>
               <div class="form-group">
+              <label class="form-control-label bmd-label-floating" for="start_date"> Escape start date (YYYY-MM-DD). </label>
+              <input type="text" class="form-control" id="start_date" name="start_date">
+              </div>
+              <div class="form-group">
+              <label class="form-control-label bmd-label-floating" for="end_date" > Escape completion date (YYYY-MM-DD). </label>
+              <input type="text" class="form-control" id="end_date" name="end_date">  
+              </div>
+              <div class="form-group">
                 <label class="bmd-label-floating">Conductor's Name</label>
                 <input type="text" class="form-control" id="conductor" name="conductor">
               </div>
               <div class="form-group">
-                <label class="bmd-label-floating">Tunnel Location</label>
-                <input type="text" class="form-control" id="tunnel"><br>
+                <label class="bmd-label-floating">Number of people</label>
+                <input type="text" class="form-control" id="num_people" name="num_people"><br>
               </div>
               <b><label>Terrains Encountered:</label><br></b>
               <input type="checkbox" id="terrain1" name="terrain1" value="true">
@@ -307,7 +362,7 @@ implode(", ", array_keys($new_user)),
               </div>
               <div class="form-group label-floating">
                 <label class="form-control-label bmd-label-floating" for="message"> Any other Comments?</label>
-                <textarea class="form-control" rows="6" id="extra_comments" nane="extra_comments"></textarea>
+                <textarea class="form-control" rows="6" id="extra_comments" name="extra_comments"></textarea>
               </div>
               <div class="submit text-center">
                 <input type="submit" name="submit" class="btn btn-primary btn-raised btn-round" value="submit">
