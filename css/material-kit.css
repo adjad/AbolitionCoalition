@@ -11087,7 +11087,7 @@ h3, .h3 {
   line-height: 1.4em; }
 
 h4, .h4 {
-  font-size: 1.125rem;
+  font-size: 1.525rem;
   line-height: 1.5em; }
 
 h5, .h5 {
@@ -13442,8 +13442,8 @@ thead.thead-inverse th,
   overflow: hidden; }
 
 .card-login .card-header {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
   margin-top: -40px;
   padding: 20px 0;
   margin-bottom: 15px; }
@@ -13927,7 +13927,7 @@ thead.thead-inverse th,
     height: 40px;
     line-height: 40px;
     font-weight: 300;
-    font-size: 1.125rem;
+    font-size: 1.525rem;
     margin: 0;
     border-radius: 50%; }
   .bootstrap-datetimepicker-widget button[data-action] {
